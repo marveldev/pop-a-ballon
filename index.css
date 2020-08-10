@@ -1,0 +1,34 @@
+body {
+  background-color: rgb(214, 216, 216);
+  text-align: center;
+}
+
+.ballon-container {
+  display: grid;
+  grid-template-columns: 10em 10em 10em 10em;
+  margin: auto;
+  width: 50%;
+  grid-row-gap: 0.5em;
+}
+
+.ballon {
+  margin: auto;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  background-color: blue;
+  cursor: pointer;
+}
+
+span {
+  display: none;
+  color: #e7160f;
+  font-size: 1.8em;
+  height: 2.5em;
+}
+
+.no-ballons-message {
+  display: none;
+  font-size: 5em;
+  color: #e7160f;
+}
