@@ -32,3 +32,29 @@ span {
   font-size: 5em;
   color: #e7160f;
 }
+
+@media screen and (max-width: 768px) {
+  .ballon-container {
+    grid-template-columns: 8em 8em 8em 8em;
+    width: 85%;
+  }
+}
+  
+@media screen and (max-width: 425px) {
+  .ballon-container {
+    grid-template-columns: 5em 5em 5em 5em;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .ballon-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ballon-container {
+    grid-template-columns: 4.5em 4.5em 4.5em 4.5em;
+  }
+}
