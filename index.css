@@ -9,6 +9,7 @@ body {
   margin: auto;
   width: 50%;
   grid-row-gap: 0.5em;
+  margin-top: 2em;
 }
 
 .ballon {
@@ -20,17 +21,47 @@ body {
   cursor: pointer;
 }
 
-span {
+.pop-message {
   display: none;
   color: #e7160f;
   font-size: 1.8em;
   height: 2.5em;
 }
 
-.no-ballons-message {
+.next-stage-message,
+.retry-stage-message {
   display: none;
   font-size: 5em;
   color: #e7160f;
+}
+
+.count-down-timer {
+  display: inline;
+  border: 2px solid black;
+  padding: 0.3em 1.2em;
+  color: #e7160f;
+  margin: auto;
+  font-size: 1.5em;
+}
+
+.button {
+  display: none;
+  margin: auto;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border: unset;
+}
+
+.button:active {
+  transform: translateY(4px);
+  background-color: #d6cdcd;
+}
+
+.button:hover {
+  text-decoration: underline;
+  background-color: #d6cdcd;
+  outline: 0.1em solid #000000;
 }
 
 @media screen and (max-width: 768px) {
