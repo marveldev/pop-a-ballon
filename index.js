@@ -7,7 +7,7 @@ let time = 30;
 let poppedBallon = 0;
 
 function playPopSound(){
-  const popSound = new Audio("./pop_a_ballon sound.mp3");
+  const popSound = new Audio("./Balloon_Pop_Sound.mp3");
   popSound.play();
 }
 
