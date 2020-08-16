@@ -17,6 +17,8 @@ function updateCountDown() {
     clearInterval(countDown);
     if (poppedBallon !== 12) {
       document.querySelector('.ballon-container').style.display = 'none';
+      document.querySelector('.next-stage-message').style.display = 'none';
+      nextStageButton.style.display = 'none';
       document.querySelector('.retry-stage-message').style.display = 'block';
       retryStageButton.style.display = 'block';
     }
