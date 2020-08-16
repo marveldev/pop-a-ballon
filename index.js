@@ -3,7 +3,7 @@ const nextStageButton = document.querySelector('.next-stage');
 const retryStageButton = document.querySelector('.retry-stage');
 const countdownDiv = document.querySelector('.count-down-timer');
 const popMessages = document.querySelectorAll('.pop-message');
-let time = 30;
+let seconds = 30;
 let poppedBallon = 0;
 
 function playPopSound(){
@@ -11,12 +11,9 @@ function playPopSound(){
   popSound.play();
 }
 
-const countDown = setInterval(updateCountDown, 1000);
 function updateCountDown() {
-  let seconds = time;
   countdownDiv.innerHTML = `${seconds}`;
-  time--
-  if (time == 0) {
+  if (seconds == 0) {
     clearInterval(countDown);
     if (poppedBallon !== 12) {
       document.querySelector('.ballon-container').style.display = 'none';
@@ -24,7 +21,9 @@ function updateCountDown() {
       retryStageButton.style.display = 'block';
     }
   }
+  seconds--
 }
+const countDown = setInterval(updateCountDown, 1000);
 
 for (let index = 0; index < ballons.length; index++) {
   const ballon = ballons[index];
@@ -37,6 +36,7 @@ for (let index = 0; index < ballons.length; index++) {
   })
 }
 
+let nextStageClickCount = 0;
 nextStageButton.addEventListener('click', () => {
   let poppedBallon = 0;
   for (let index = 0; index < ballons.length; index++) {
@@ -49,6 +49,9 @@ nextStageButton.addEventListener('click', () => {
   }
   document.querySelector('.next-stage-message').style.display = 'none';
   nextStageButton.style.display = 'none';
+  nextStageClickCount++
+  let newSeconds = 20 / nextStageClickCount;
+  seconds = Math.round(newSeconds);
 })
 
 retryStageButton.addEventListener('click', () => {
