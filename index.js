@@ -70,4 +70,3 @@ function checkPoppedBallon(poppedBallon) {
     nextStageButton.style.display = 'block';
   }
 }
-
