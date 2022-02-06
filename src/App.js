@@ -2,7 +2,7 @@ import { Home } from './components'
 
 const App = () => {
   return (
-    <div className={"app"}>
+    <div className={"absolute bg-[url('./assets/wallpaper.png')]"}>
       <Home />
     </div>
   )

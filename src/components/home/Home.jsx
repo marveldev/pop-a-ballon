@@ -1,7 +1,10 @@
 const Home = () => {
   return (
-    <div>
-      hey
+    <div className={"text-center"}>
+      <div className={"text-center"}>
+        <p className="text-center">BALL</p>
+        <p>POP</p>
+      </div>
     </div>
   )
 }
