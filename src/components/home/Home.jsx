@@ -1,13 +1,21 @@
 const Home = () => {
   return (
-    <div>
-      <div className={"wallpaper position-absolute w-100 h-100"}/>
-      <div className={"home-buttons position-absolute translate-middle text-center w-100"}>
-        <button className={"btn"}>Statistics</button>
-        <button className={"btn mx-4 fs-2"}>Play</button>
-        <button className={"btn"}>Guide</button>
+    <>
+      <div className={"ring-bg-top"} />
+      <div className={"ring-bg-bottom"} />
+      <div className={"ball-bg-top"} />
+      <div className={"ball-bg-bottom"} />
+
+      <div className={"home position-absolute text-center"}>
+        <p className={"name lh-1"}>Ball Pop</p>
+
+        <div className={"d-flex justify-content-center gap-4"}>
+          <button className={"btn bg-success text-white"}>Statistics</button>
+          <button className={"btn btn-lg bg-success text-white"}>Play</button>
+          <button className={"btn bg-success text-white"}>Guide</button>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

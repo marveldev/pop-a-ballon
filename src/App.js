@@ -2,7 +2,7 @@ import { Home } from './components'
 
 const App = () => {
   return (
-    <div>
+    <div className={"position-absolute w-100 h-100"}>
       <Home />
     </div>
   )

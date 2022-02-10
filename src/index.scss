@@ -1,0 +1,46 @@
+@mixin theme($url, $bgPosition) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url($url) no-repeat $bgPosition fixed;
+}
+
+.ring-bg-top {
+  @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
+}
+
+.ring-bg-bottom {
+  @include theme($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
+}
+
+.ball-bg-top {
+  @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
+}
+
+.ball-bg-bottom {
+  @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
+}
+
+.home {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+  .name {
+    font-family: "Raleway Light", monospace;
+    font-size: 8em;
+  }
+
+  .btn {
+    font-family: arial, serif;
+  }
+}
+
+button:active {
+  transform: translateY(0.1em);
+}
+
+@media only screen and (max-width: 450px) {
+
+}
