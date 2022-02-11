@@ -6,26 +6,28 @@
   background: url($url) no-repeat $bgPosition;
 }
 
-.ring-bg-top {
-  @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
-}
-
-.ring-bg-bottom {
-  @include theme($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
-}
-
-.ball-bg-top {
-  @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
-}
-
-.ball-bg-bottom {
-  @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
-}
-
 .home {
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+  .ring-bg-top {
+    @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
+  }
+
+  .ring-bg-bottom {
+    @include theme($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
+  }
+
+  .ball-bg-top {
+    @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
+  }
+
+  .ball-bg-bottom {
+    @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
+  }
+
+  .home-text {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+  }
 
   .name {
     font-family: "Raleway Light", monospace;
@@ -35,12 +37,4 @@
   .btn {
     font-family: arial, serif;
   }
-}
-
-button:active {
-  transform: translateY(0.1em);
-}
-
-@media only screen and (max-width: 450px) {
-
 }
