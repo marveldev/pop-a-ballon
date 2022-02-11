@@ -1,10 +1,35 @@
+import { motion } from 'framer-motion'
+
 const Home = () => {
   return (
-    <>
-      <div className={"ring-bg-top"} />
-      <div className={"ring-bg-bottom"} />
-      <div className={"ball-bg-top"} />
-      <div className={"ball-bg-bottom"} />
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+      <motion.div
+        className={"ring-bg-top"}
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"ring-bg-bottom"}
+        initial={{ x: 200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"ball-bg-top"}
+        initial={{ x: 200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"ball-bg-bottom"}
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
 
       <div className={"home position-absolute text-center"}>
         <p className={"name lh-1"}>Ball Pop</p>
@@ -15,7 +40,7 @@ const Home = () => {
           <button className={"btn bg-success text-white"}>Guide</button>
         </div>
       </div>
-    </>
+    </motion.div>
   )
 }
 

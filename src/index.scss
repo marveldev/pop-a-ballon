@@ -1,9 +1,9 @@
 @mixin theme($url, $bgPosition) {
-  position: absolute;
-  width: 100%;
+  position: fixed;
   height: 100%;
+  width: 100%;
   z-index: -1;
-  background: url($url) no-repeat $bgPosition fixed;
+  background: url($url) no-repeat $bgPosition;
 }
 
 .ring-bg-top {
@@ -15,11 +15,11 @@
 }
 
 .ball-bg-top {
-  @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
+  @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
 }
 
 .ball-bg-bottom {
-  @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
+  @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
 }
 
 .home {
