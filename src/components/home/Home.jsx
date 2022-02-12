@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Home = () => {
+const Home = ({ setIsSettings }) => {
   return (
     <motion.div
       className={"home"}
@@ -40,7 +40,7 @@ const Home = () => {
         <p className={"name lh-1"}>Ball Pop</p>
 
         <div className={"d-flex justify-content-center gap-4"}>
-          <button className={"btn bg-success text-white"}>Statistics</button>
+          <button className={"btn bg-success text-white"} onClick={() => setIsSettings(true)}>Statistics</button>
           <button className={"btn btn-lg bg-success text-white"}>Play</button>
           <button className={"btn bg-success text-white"}>Guide</button>
         </div>

@@ -6,6 +6,10 @@
   background: url($url) no-repeat $bgPosition;
 }
 
+button:active {
+  transform: translateY(0.2em);
+}
+
 .home {
   .ring-bg-top {
     @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
@@ -36,5 +40,23 @@
 
   .btn {
     font-family: arial, serif;
+  }
+}
+
+.settings {
+  height: 50%;
+  width: 50%;
+  left: 25%;
+  background: #5aefff;
+}
+
+.overlay {
+  background-color: #000000A3;
+}
+
+@media only screen and (max-width: 650px) {
+  .settings {
+    width: 100%;
+    left: 0;
   }
 }
