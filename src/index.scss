@@ -47,7 +47,10 @@ button:active {
   height: 50%;
   width: 50%;
   left: 25%;
-  background: #5aefff;
+
+  .btn-close {
+    margin: 0 0 0 auto;
+  }
 }
 
 .overlay {
