@@ -31,15 +31,18 @@ button:active {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -40%);
+
+    .btn {
+      width: 3.5em;
+      height: 3.5em;
+      background: #009c00;
+      font-family: arial, serif;
+    }
   }
 
   .name {
     font-family: "Raleway Light", monospace;
     font-size: 8em;
-  }
-
-  .btn {
-    font-family: arial, serif;
   }
 }
 

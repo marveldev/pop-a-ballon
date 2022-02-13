@@ -36,32 +36,29 @@ const Home = ({ setIsSettings, setIsGuide, setUserIsPlaying }) => {
         transition={{ duration: 1 }}
       />
 
-      {/*<div className="form-check form-switch d-flex justify-content-center fs-1">*/}
-      {/*  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  />*/}
-      {/*  /!*<label className="form-check-label" htmlFor="flexSwitchCheckChecked">Checked switch checkbox input</label>*!/*/}
-      {/*</div>*/}
-
       <div className={"home-text position-fixed text-center"}>
         <p className={"name lh-1"}>Ball Pop</p>
 
         <div className={"d-flex justify-content-center gap-4"}>
           <button
-            className={"btn bg-success text-white"}
+            className={"btn rounded-circle text-white p-0"}
             onClick={() => setIsSettings(true)}
           >
-            Statistics
+            <i className="material-icons align-middle fs-1">dashboard</i>
           </button>
+
           <button
-            className={"btn btn-lg bg-success text-white"}
+            className={"btn rounded-circle text-white p-0"}
             onClick={() => setUserIsPlaying(true)}
           >
-            Play
+            <i className="material-icons align-middle fs-1">play_arrow</i>
           </button>
+
           <button
-            className={"btn bg-success text-white"}
+            className={"btn rounded-circle text-white p-0"}
             onClick={() => setIsGuide(true)}
           >
-            Guide
+            <i className="material-icons align-middle fs-1">help</i>
           </button>
         </div>
       </div>
