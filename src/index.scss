@@ -43,7 +43,8 @@ button:active {
   }
 }
 
-.settings {
+.statistics,
+.guide {
   height: 50%;
   width: 50%;
   left: 25%;
@@ -58,7 +59,8 @@ button:active {
 }
 
 @media only screen and (max-width: 650px) {
-  .settings {
+  .statistics,
+  .guide {
     width: 100%;
     left: 0;
   }
