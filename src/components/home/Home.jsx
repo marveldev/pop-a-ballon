@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Home = ({ setIsSettings, setIsGuide }) => {
+const Home = ({ setIsSettings, setIsGuide, setUserIsPlaying }) => {
   return (
     <motion.div
       className={"home"}
@@ -36,6 +36,11 @@ const Home = ({ setIsSettings, setIsGuide }) => {
         transition={{ duration: 1 }}
       />
 
+      {/*<div className="form-check form-switch d-flex justify-content-center fs-1">*/}
+      {/*  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  />*/}
+      {/*  /!*<label className="form-check-label" htmlFor="flexSwitchCheckChecked">Checked switch checkbox input</label>*!/*/}
+      {/*</div>*/}
+
       <div className={"home-text position-fixed text-center"}>
         <p className={"name lh-1"}>Ball Pop</p>
 
@@ -46,7 +51,12 @@ const Home = ({ setIsSettings, setIsGuide }) => {
           >
             Statistics
           </button>
-          <button className={"btn btn-lg bg-success text-white"}>Play</button>
+          <button
+            className={"btn btn-lg bg-success text-white"}
+            onClick={() => setUserIsPlaying(true)}
+          >
+            Play
+          </button>
           <button
             className={"btn bg-success text-white"}
             onClick={() => setIsGuide(true)}

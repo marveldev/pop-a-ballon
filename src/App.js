@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import { Guide, Home, Statistics } from './components'
+import { BallPop, Guide, Home, Statistics } from './components'
 
 const App = () => {
   const [isSettings, setIsSettings] = useState(false)
   const [isGuide, setIsGuide] = useState(false)
+  const [userIsPlaying, setUserIsPlaying] = useState(false)
 
   return (
     <div className={"position-absolute w-100 h-100"}>
-      <Home setIsSettings={setIsSettings} setIsGuide={setIsGuide} />
+      {!userIsPlaying && (
+        <Home setIsSettings={setIsSettings} setIsGuide={setIsGuide} setUserIsPlaying={setUserIsPlaying} />
+      )}
       {isSettings && <Statistics setIsSettings={setIsSettings} />}
       {isGuide && <Guide setIsGuide={setIsGuide} />}
+      {userIsPlaying && <BallPop />}
     </div>
   )
 }
