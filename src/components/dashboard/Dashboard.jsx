@@ -17,7 +17,7 @@ const Dashboard = ({ setIsSettings }) => {
               aria-label="close"
               onClick={() => setIsSettings(false)}
             >
-              <i className="material-icons fs-2">close</i>
+              <i className="material-icons align-middle fs-2">close</i>
             </button>
           </div>
 
