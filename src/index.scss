@@ -46,15 +46,9 @@ button:active {
   }
 }
 
-.statistics,
+.dashboard,
 .guide {
-  height: 50%;
   width: 50%;
-  left: 25%;
-
-  .btn-close {
-    margin: 0 0 0 auto;
-  }
 }
 
 .overlay {
@@ -62,9 +56,9 @@ button:active {
 }
 
 @media only screen and (max-width: 650px) {
-  .statistics,
+  .dashboard,
   .guide {
     width: 100%;
-    left: 0;
+    margin-left: 0;
   }
 }
