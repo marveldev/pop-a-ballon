@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BallPop, Help, Home, Dashboard } from './components'
+import { Bubble, Help, Home, Dashboard } from './components'
 
 const App = () => {
   const [isSettings, setIsSettings] = useState(false)
@@ -13,7 +13,7 @@ const App = () => {
       )}
       {isSettings && <Dashboard setIsSettings={setIsSettings} />}
       {isGuide && <Help setIsGuide={setIsGuide} />}
-      {userIsPlaying && <BallPop />}
+      {userIsPlaying && <Bubble />}
     </div>
   )
 }
