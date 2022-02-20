@@ -14,7 +14,7 @@ const Bubble = () => {
           <div className={"bubble"}/>
         </div>
         <div className="m-auto">
-          <div className={"bubble scaleX3"}/>
+          <div className={"bubble scaleX3 lg"}/>
           <div className={"bubble scaleX1"}/>
         </div>
         <div className="justify-content-center">
@@ -31,7 +31,7 @@ const Bubble = () => {
           <div className={"bubble scaleX1"}/>
         </div>
         <div className="m-auto">
-          <div className={"bubble scaleX3"}/>
+          <div className={"bubble scaleX3 lg"}/>
           <div className={"bubble scaleX2"}/>
         </div>
         <div className="m-auto">

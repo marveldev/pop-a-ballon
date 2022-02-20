@@ -19,7 +19,6 @@
     }
 
     .bubble {
-      //display: none;
       width: 10em;
       height: 10em;
       border-radius: 50%;
@@ -54,14 +53,23 @@
     }
   }
 
-  @media only screen and (max-width: 820px) {
+  @media only screen and (max-width: 500px) {
+    .header {
+      text-align: center;
+    }
+
     .bubbles {
       top: 6em;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
 
       .bubble {
-        width: 5em;
-        height: 5em;
+        width: 7em;
+        height: 7em;
+        box-shadow: 0 1.2em 1.8em rgba(0, 0, 0, 0.2), inset 0 0 1em 0.1em rgba(255, 255, 255, 1);
+      }
+
+      .lg {
+        display: none;
       }
     }
   }
