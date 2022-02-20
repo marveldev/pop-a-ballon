@@ -1,6 +1,6 @@
 .bubble-wrap {
-  position: fixed;
-  background: #00b4ff;
+  background-color: rgb(8, 8, 32);
+  box-sizing: border-box;
 
   .header {
     padding: 1.5em 2em;
@@ -9,67 +9,138 @@
   }
 
   .bubbles {
-    grid-template-columns: repeat(3, 1fr);
-    top: 4em;
+    width: 100%;
     height: 80%;
+    position: relative;
+    overflow: hidden;
 
-    & > div {
-      display: flex;
-    }
-
-    .bubble {
-      width: 10em;
-      height: 10em;
+    .bub {
+      width: 8.12em;
+      height: 8.12em;
+      border: 1px solid white;
+      box-shadow: inset 0.312em -0.312em 0.62em white;
       border-radius: 50%;
+      background-color: rgba(255, 255, 255, .01);
+      backdrop-filter: blur(0.12em);
+      position: absolute;
+      bottom: -6.25em;
       cursor: pointer;
-      animation: sideWays 3s ease-in-out infinite alternate;
-      box-shadow: 0 1.2em 1.8em rgba(0, 0, 0, 0.2), inset 0 0.6em 1.8em 0.3em rgba(255, 255, 255, 1);
-      background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 50%);
     }
 
-    .scaleX1 {
-      transform: scale(0.8);
-      animation: sideWays 2s ease-in-out infinite alternate;
+    .bub::before {
+      position: absolute;
+      content: "";
+      background-color: white;
+      width: 0.93em;
+      height: 0.93em;
+      border-radius: 50%;
+      top: 1.56em;
+      right: 1.43em;
+      box-shadow: 0 0 20px #fff;
     }
 
-    .scaleX2 {
-      transform: scale(0.5);
-      animation: sideWays 4s ease-in-out infinite alternate;
+    .one {
+      left: 10%;
+      animation: floating2 4s ease-in 1s infinite;
     }
 
-    .scaleX3 {
-      transform: scale(0.3);
-      animation: sideWays 1s ease-in-out infinite alternate;
+    .two {
+      left: 20%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 3s ease-in 1.4s infinite;
     }
 
-    @keyframes sideWays {
+    .three {
+      left: 28%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 10s ease-in 3.8s infinite;
+    }
+
+    .four {
+      left: 48%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 3.6s ease-in 0.5s infinite;
+    }
+
+    .five {
+      left: 78%;
+      animation: floating2 4.6s ease-in 2.5s infinite;
+    }
+
+    .six {
+      left: 90%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 5s ease-in 3s infinite;
+    }
+
+    .seven {
+      left: 58%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 4.4s ease-in 2s infinite;
+    }
+
+    .eight {
+      left: 38%;
+      animation: floating2 6s ease-in infinite;
+    }
+
+    .nine {
+      left: 68%;
+      animation: floating2 3.6s ease-in 2.1s infinite;
+    }
+
+    .ten {
+      left: 2%;
+      width: 5.62em;
+      height: 5.62em;
+      animation: floating 4s ease-in 1.5s infinite;
+    }
+
+    @keyframes floating {
       0% {
-        margin-left: 0;
+        opacity: 0;
+      }
+      10%,
+      93% {
+        opacity: 1;
       }
       100% {
-        margin-left: 3.12em;
+        transform: translate(50px, -800px);
+        display: none;
+      }
+    }
+
+    @keyframes floating2 {
+      0% {
+        opacity: 0;
+      }
+      10%,
+      93% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50px, -800px);
+        display: none;
       }
     }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     .header {
       text-align: center;
     }
 
-    .bubbles {
-      top: 6em;
-      grid-template-columns: 1fr 1fr;
+    .six {
+      display: none;
+    }
 
-      .bubble {
-        width: 7em;
-        height: 7em;
-        box-shadow: 0 1.2em 1.8em rgba(0, 0, 0, 0.2), inset 0 0 1em 0.1em rgba(255, 255, 255, 1);
-      }
-
-      .lg {
-        display: none;
-      }
+    .nine {
+      display: none;
     }
   }
 }
