@@ -1,6 +1,10 @@
 import './bubble.scss'
 
 const Bubble = () => {
+  const popBubble = () => {
+    
+  }
+
   return (
     <div className={"bubble-wrap w-100 h-100"}>
       <div className={"header fw-bold d-flex justify-content-between"}>
