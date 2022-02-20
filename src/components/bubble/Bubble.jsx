@@ -1,6 +1,10 @@
 import './bubble.scss'
 
 const Bubble = () => {
+  const data = ['b-one jcc', 'b-two', 'b-three jcc', 'b-four', 'b-five', 'b-six', 'b-seven jcr', 'b-eight jcr', 'b-nine']
+  const width = window.innerWidth
+  console.log(width)
+
   return (
     <div className={"bubble-wrap"}>
       <div className={"header fw-bold d-flex justify-content-between"}>
@@ -9,17 +13,37 @@ const Bubble = () => {
         <p>Balls Popped: <span className={"fw-normal"}>0</span></p>
       </div>
 
-      <div>
-        <div className="bubble b-one" />
-        <div className="bubble b-two" />
-        <div className="bubble b-three" />
-        <div className="bubble b-four" />
-        <div className="bubble b-five" />
-        <div className="bubble b-six" />
-        <div className="bubble b-seven" />
-        <div className="bubble b-eight" />
-        <div className="bubble b-nine" />
-        <div className="bubble b-ten" />
+      <div className="content">
+        <div className="justify-content-center">
+          <div className={"bubble"}/>
+        </div>
+        <div className="m-auto">
+          <div className={"bubble scalex3"}/>
+          <div className={"bubble scalex1"}/>
+        </div>
+        <div className="justify-content-center">
+          <div className={"bubble scalex2"}/>
+        </div>
+        <div className="">
+          <div className={"bubble scalex1"}/>
+        </div>
+        <div className="">
+          <div className={"bubble"}/>
+        </div>
+        <div className="">
+          <div className={"bubble scalex2"}/>
+          <div className={"bubble scalex1"}/>
+        </div>
+        <div className="m-auto">
+          <div className={"bubble scalex3"}/>
+          <div className={"bubble scalex2"}/>
+        </div>
+        <div className="m-auto">
+          <div className={"bubble scalex1"}/>
+        </div>
+        <div className="m-auto">
+          <div className={"bubble"}/>
+        </div>
       </div>
     </div>
   )
