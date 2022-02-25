@@ -1,6 +1,15 @@
 import './bubble.scss'
 
 const Bubble = () => {
+// const audioElement = new Audio(pop)
+const popBubble = (value) => {
+  console.log('i have been clicked' + ' ' + value)
+  // audioElement.play()
+  const bubble = document.querySelector(`.${value}`)
+  // bubble.classList.remove("float")
+  bubble.classList.add("popped")
+}
+
   return (
     <div className={"bubble-wrap"}>
       <div className={"header fw-bold d-flex justify-content-between"}>
@@ -10,7 +19,7 @@ const Bubble = () => {
       </div>
 
       <div>
-        <div className="bubble b-one" />
+        <div className="bubble b-one" onClick={() => popBubble('b-one')}/>
         <div className="bubble b-two" />
         <div className="bubble b-three" />
         <div className="bubble b-four" />
