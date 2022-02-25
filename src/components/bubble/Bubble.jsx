@@ -1,9 +1,15 @@
+import pop from './pop.mp3'
 import './bubble.scss'
 
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
-  const popBubble = () => {
-    
+  const audioElement = new Audio(pop)
+  const popBubble = (value) => {
+    console.log('i have been clicked' + ' ' + value)
+    audioElement.play()
+    const bubble = document.querySelector(`.${value}`)
+    bubble.classList.remove("float")
+    bubble.classList.add("popped")
   }
 
   return (
@@ -16,7 +22,11 @@ const Bubble = () => {
 
       <div className="bubbles">
         {bubArray.map((value, index) => (
-          <span key={index} className={`bub ${value}`} />
+          <span
+            key={index}
+            className={`bub ${value} float`}
+            onClick={() => popBubble(value)}
+          />
         ))}
       </div>
     </div>
