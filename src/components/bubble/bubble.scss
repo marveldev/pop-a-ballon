@@ -2,7 +2,7 @@
   background: #080820FF;
 
   .header {
-    padding: 1.5em 2em;
+    padding: 1.5em 2em 1em;
     font-size: 1.1em;
     font-family: Roboto, fantasy;
   }
@@ -22,7 +22,7 @@
       background: rgba(255, 255, 255, .01);
       backdrop-filter: blur(0.12em);
       position: absolute;
-      bottom: -6em;
+      bottom: -8em;
       cursor: pointer;
     }
 
@@ -46,6 +46,8 @@
     }
 
     .four {
+      display: none;
+
       left: 48%;
       width: 5.62em;
       height: 5.62em;
@@ -53,18 +55,25 @@
     }
 
     .five {
+      //display: none;
+
       left: 78%;
       animation: floating2 6.6s ease-in 2.5s infinite;
     }
 
     .six {
+      display: none;
+
       left: 90%;
       width: 5.62em;
       height: 5.62em;
+      background: red;
       animation: floating 7s ease-in 3s infinite;
     }
 
     .seven {
+      display: none;
+
       left: 58%;
       width: 5.62em;
       height: 5.62em;
@@ -72,6 +81,7 @@
     }
 
     .eight {
+      display: none;
       left: 38%;
       animation: floating2 8s ease-in infinite;
     }
@@ -82,6 +92,8 @@
     }
 
     .ten {
+      display: none;
+
       left: 2%;
       width: 5.62em;
       height: 5.62em;
@@ -101,7 +113,7 @@
         opacity: 1;
       }
       100% {
-        transform: translate(50px, -800px);
+        transform: translate(3.12em, -50em);
         display: none;
       }
     }
@@ -115,7 +127,7 @@
         opacity: 1;
       }
       100% {
-        transform: translate(-50px, -800px);
+        transform: translate(-3.12em, -50em);
         display: none;
       }
     }
@@ -137,12 +149,26 @@
       text-align: center;
     }
 
-    .six {
-      display: none;
-    }
+    .bubbles {
+      .bubble {
+        //bottom: 0;
+      }
 
-    .nine {
-      display: none;
+      .one {
+        left: 0;
+      }
+
+      .two {
+        bottom: 25%;
+      }
+
+      .five {
+        left: 35%;
+      }
+
+      .three {
+
+      }
     }
   }
 }
