@@ -1,6 +1,5 @@
 .bubble-wrap {
-  background-color: rgb(8, 8, 32);
-  box-sizing: border-box;
+  background: #080820FF;
 
   .header {
     padding: 1.5em 2em;
@@ -17,26 +16,14 @@
     .bub {
       width: 8.12em;
       height: 8.12em;
-      border: 1px solid white;
-      box-shadow: inset 0.312em -0.312em 0.62em white;
+      border: 0.05em solid #fff;
+      box-shadow: inset 0.312em -0.312em 0.62em #fff;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, .01);
+      background: rgba(255, 255, 255, .01);
       backdrop-filter: blur(0.12em);
       position: absolute;
       bottom: -6.25em;
       cursor: pointer;
-    }
-
-    .bub::before {
-      position: absolute;
-      content: "";
-      background-color: white;
-      width: 0.93em;
-      height: 0.93em;
-      border-radius: 50%;
-      top: 1.56em;
-      right: 1.43em;
-      box-shadow: 0 0 20px #fff;
     }
 
     .one {

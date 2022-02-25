@@ -4,6 +4,7 @@ import './bubble.scss'
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
+  let count = 0
 
   const popBubble = (value, event) => {
     console.log('i have been clicked' + ' ' + value)
@@ -14,13 +15,15 @@ const Bubble = () => {
 
     bubble.style.left = posX+'px'
     bubble.style.top = posY+'px'
+
     bubble.classList.add("popped")
 
     audioElement.play()
+    count++
 
     setTimeout(() => {
       bubble.classList.remove("popped")
-      bubble.style.opacity = 1
+      bubble.removeAttribute('style')
     }, 3000)
   }
 
