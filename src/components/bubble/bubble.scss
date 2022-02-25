@@ -13,7 +13,7 @@
     position: relative;
     overflow: hidden;
 
-    .bub {
+    .bubble {
       width: 8.12em;
       height: 8.12em;
       border: 0.05em solid #fff;
@@ -88,7 +88,7 @@
       animation: floating 6s ease-in 1.5s infinite;
     }
 
-    .popped {
+    .pop {
       animation: popped 0.3s ease-out both;
     }
 

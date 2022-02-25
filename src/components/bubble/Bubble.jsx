@@ -4,10 +4,10 @@ import './bubble.scss'
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
+
   let count = 0
 
   const popBubble = (value, event) => {
-    console.log('i have been clicked' + ' ' + value)
     const posX = event.clientX
     const posY = event.clientY
 
@@ -16,13 +16,13 @@ const Bubble = () => {
     bubble.style.left = posX+'px'
     bubble.style.top = posY+'px'
 
-    bubble.classList.add("popped")
+    bubble.classList.add('pop')
 
     audioElement.play()
     count++
 
     setTimeout(() => {
-      bubble.classList.remove("popped")
+      bubble.classList.remove('pop')
       bubble.removeAttribute('style')
     }, 3000)
   }
@@ -39,7 +39,7 @@ const Bubble = () => {
         {bubArray.map((value, index) => (
           <span
             key={index}
-            className={`bub ${value}`}
+            className={`bubble ${value}`}
             onClick={event => popBubble(value, event)}
           />
         ))}
