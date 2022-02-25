@@ -5,26 +5,20 @@ const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
 
-  let count = 0
-
-  const popBubble = (value, event) => {
-    const posX = event.clientX
-    const posY = event.clientY
-
+  const popBubble = value => {
     const bubble = document.querySelector(`.${value}`)
+    const bubblePosition = bubble.getBoundingClientRect()
 
-    bubble.style.left = posX+'px'
-    bubble.style.top = posY+'px'
-
+    bubble.style.left = bubblePosition.left+'px'
+    bubble.style.top = bubblePosition.top+'px'
     bubble.classList.add('pop')
 
     audioElement.play()
-    count++
 
     setTimeout(() => {
       bubble.classList.remove('pop')
       bubble.removeAttribute('style')
-    }, 3000)
+    }, 100)
   }
 
   return (
@@ -36,11 +30,11 @@ const Bubble = () => {
       </div>
 
       <div className="bubbles">
-        {bubArray.map((value, index) => (
+        {bubArray.map(value => (
           <span
-            key={index}
+            key={value}
             className={`bubble ${value}`}
-            onClick={event => popBubble(value, event)}
+            onClick={() => popBubble(value)}
           />
         ))}
       </div>
