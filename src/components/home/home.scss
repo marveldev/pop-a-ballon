@@ -15,12 +15,12 @@
     @include theme($url: '../../assets/ringBgBottom.svg', $bgPosition: right bottom);
   }
 
-  .ball-bg-top {
-    @include theme($url: '../../assets/ballBgBottom.svg', $bgPosition: 98% 2%);
+  .bubble-bg-top {
+    @include theme($url: '../../assets/bubble.svg', $bgPosition: 98% 2%);
   }
 
-  .ball-bg-bottom {
-    @include theme($url: '../../assets/ballBgTop.svg', $bgPosition: 2% 98%);
+  .bubble-bg-bottom {
+    @include theme($url: '../../assets/bubble.svg', $bgPosition: 2% 98%);
   }
 
   .home-text {

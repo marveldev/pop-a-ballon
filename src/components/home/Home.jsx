@@ -24,14 +24,14 @@ const Home = ({ setIsSettings, setIsGuide, setUserIsPlaying }) => {
       />
 
       <motion.div
-        className={"ball-bg-top"}
+        className={"bubble-bg-top"}
         initial={{ x: 200 }}
         animate={{ x: 0 }}
         transition={{ duration: 1 }}
       />
 
       <motion.div
-        className={"ball-bg-bottom"}
+        className={"bubble-bg-bottom"}
         initial={{ x: -200 }}
         animate={{ x: 0 }}
         transition={{ duration: 1 }}
