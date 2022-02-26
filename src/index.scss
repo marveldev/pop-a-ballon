@@ -1,58 +1,20 @@
-@mixin theme($url, $bgPosition) {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+.app {
+  background: #080820FF;
   z-index: -1;
-  background: url($url) no-repeat $bgPosition;
 }
 
 button:active {
   transform: translateY(0.2em);
 }
 
-.home {
-  .ring-bg-top {
-    @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
-  }
-
-  .ring-bg-bottom {
-    @include theme($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
-  }
-
-  .ball-bg-top {
-    @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
-  }
-
-  .ball-bg-bottom {
-    @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
-  }
-
-  .home-text {
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-
-    .btn {
-      width: 3.5em;
-      height: 3.5em;
-      background: #009c00;
-      font-family: arial, serif;
-    }
-  }
-
-  .name {
-    font-family: "Raleway Light", monospace;
-    font-size: 8em;
-  }
-}
-
 .dashboard,
 .help {
   width: 50%;
+  color: #000;
 }
 
 .overlay {
-  background-color: #000000A3;
+  background: #18181879;
 }
 
 @media only screen and (max-width: 650px) {

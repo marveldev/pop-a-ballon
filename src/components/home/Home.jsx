@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import './home.scss'
 
 const Home = ({ setIsSettings, setIsGuide, setUserIsPlaying }) => {
   return (
@@ -37,7 +38,7 @@ const Home = ({ setIsSettings, setIsGuide, setUserIsPlaying }) => {
       />
 
       <div className={"home-text position-fixed text-center"}>
-        <p className={"name lh-1"}>Ball Pop</p>
+        <p className={"name lh-1"}>Bubble Pop</p>
 
         <div className={"d-flex justify-content-center gap-4"}>
           <button

@@ -7,7 +7,7 @@ const App = () => {
   const [userIsPlaying, setUserIsPlaying] = useState(false)
 
   return (
-    <div className={"position-absolute w-100 h-100"}>
+    <div className={"app position-absolute w-100 h-100 text-white"}>
       {!userIsPlaying && (
         <Home setIsSettings={setIsSettings} setIsGuide={setIsGuide} setUserIsPlaying={setUserIsPlaying} />
       )}
