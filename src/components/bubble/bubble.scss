@@ -35,19 +35,17 @@
       left: 20%;
       width: 5.62em;
       height: 5.62em;
-      animation: floating 5s ease-in 1.4s infinite;
+      animation: floating 8s ease-in 1.4s infinite;
     }
 
     .three {
       left: 28%;
       width: 5.62em;
       height: 5.62em;
-      animation: floating 12s ease-in 3.8s infinite;
+      animation: floating 5s ease-in infinite;
     }
 
     .four {
-      display: none;
-
       left: 48%;
       width: 5.62em;
       height: 5.62em;
@@ -55,25 +53,18 @@
     }
 
     .five {
-      //display: none;
-
       left: 78%;
       animation: floating2 6.6s ease-in 2.5s infinite;
     }
 
     .six {
-      display: none;
-
       left: 90%;
       width: 5.62em;
       height: 5.62em;
-      background: red;
       animation: floating 7s ease-in 3s infinite;
     }
 
     .seven {
-      display: none;
-
       left: 58%;
       width: 5.62em;
       height: 5.62em;
@@ -81,23 +72,20 @@
     }
 
     .eight {
-      display: none;
       left: 38%;
       animation: floating2 8s ease-in infinite;
     }
 
     .nine {
       left: 68%;
-      animation: floating2 3.6s ease-in 2.1s infinite;
+      animation: floating 5s ease-in 15s infinite;
     }
 
     .ten {
-      display: none;
-
       left: 2%;
       width: 5.62em;
       height: 5.62em;
-      animation: floating 6s ease-in 1.5s infinite;
+      animation: floating 6s ease-in 10s infinite;
     }
 
     .pop {
@@ -149,26 +137,14 @@
       text-align: center;
     }
 
-    .bubbles {
-      .bubble {
-        //bottom: 0;
-      }
+    .six,
+    .five,
+    .eight {
+      display: none;
+    }
 
-      .one {
-        left: 0;
-      }
-
-      .two {
-        bottom: 25%;
-      }
-
-      .five {
-        left: 35%;
-      }
-
-      .three {
-
-      }
+    .bubbles .three {
+      bottom: 15%;
     }
   }
 }
