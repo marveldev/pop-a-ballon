@@ -21,6 +21,26 @@ const Bubble = () => {
     }, 100)
   }
 
+  const getRandomPosition = () => {
+    for (let index = 0; index < bubArray.length; index++) {
+      const bubble = bubArray[index]
+      const element = document.querySelector(`.${bubble}`)
+      const x = document.body.offsetHeight - element.clientHeight
+      const y = document.body.offsetWidth - element.clientWidth
+      const randomX = Math.floor(Math.random() * x)
+      const randomY = Math.floor(Math.random() * y)
+
+      element.style.top = randomY+'px'
+      element.style.left = randomX+'px'
+      element.style.zIndex = index
+      element.style.animationDuration = Math.floor(Math.random() * 15 + 7.5) + "s"
+    }
+  }
+
+  setTimeout(() => {
+    getRandomPosition()
+  }, 10)
+
   return (
     <div className={"bubble-wrap w-100 h-100"}>
       <div className={"header text-white fw-bold d-flex justify-content-between"}>
