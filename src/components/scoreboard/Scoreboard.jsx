@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Dashboard = ({ setIsSettings }) => {
+const Scoreboard = ({ setIsSettings }) => {
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
       <motion.div
@@ -11,7 +11,7 @@ const Dashboard = ({ setIsSettings }) => {
       >
         <div className="modal-content pb-2">
           <div className="modal-header">
-            <h3>Dashboard</h3>
+            <h3>Scoreboard</h3>
             <button
               className={"btn p-0"}
               aria-label="close"
@@ -23,12 +23,12 @@ const Dashboard = ({ setIsSettings }) => {
 
           <div className={"modal-body text-center"}>
             <div className={"fs-5"}>
-              <span className={"fw-bold"}>Your score:</span> 0
+              <span className={"fw-bold"}>Latest score:</span> 0
             </div>
             <div className={"my-3 fs-5"}>
               <span className={"fw-bold"}>Highest score:</span> 0
             </div>
-            <button className={"btn btn-primary w-50"}>Reset</button>
+            <button className={"btn btn-success w-50"}>Reset</button>
           </div>
         </div>
       </motion.div>
@@ -36,4 +36,4 @@ const Dashboard = ({ setIsSettings }) => {
   )
 }
 
-export default Dashboard
+export default Scoreboard
