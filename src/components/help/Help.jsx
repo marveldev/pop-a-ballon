@@ -21,8 +21,11 @@ const Help = ({ setIsGuide }) => {
             </button>
           </div>
 
-          <div className={"modal-body text-center"}>
-            how to play
+          <div className={"modal-body"}>
+            To successfully complete a level,
+            you are to pop the required number of bubbles by tapping on the bubbles
+            before the countdown ends. Extra points are awarded for any additional bubble you pop.
+            Have fun!
           </div>
         </div>
       </motion.div>
