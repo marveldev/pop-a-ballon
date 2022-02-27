@@ -12,26 +12,13 @@
     overflow: hidden;
 
     .bubble {
-      width: 8.12em;
-      height: 8.12em;
-      border: 0.05em solid #2d4d63;
-      box-shadow: inset 0.312em -0.312em 0.62em #fff;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.01);
+      transition: all ease-in-out;
+      cursor: pointer;
       position: absolute;
       bottom: -8em;
-      cursor: pointer;
-    }
-
-    .bubble::before {
-      position: absolute;
-      content: "";
-      background: #FFFFFFE4;
-      width: 1em;
-      height: 0.7em;
-      border-radius: 50%;
-      left: 50%;
-      top: 15%;
+      width: 8.12em;
+      height: 8.12em;
+      background: url('../../assets/bubble.png') no-repeat 50% / contain;
     }
 
     .one {

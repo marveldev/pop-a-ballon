@@ -1,4 +1,4 @@
-@mixin theme($url, $bgPosition) {
+@mixin ringBg($url, $bgPosition) {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -8,19 +8,29 @@
 
 .home {
   .ring-bg-top {
-    @include theme($url: '../../assets/ringBgTop.svg', $bgPosition: left top);
+    @include ringBg($url: '../../assets/ringBgTop.svg', $bgPosition: left top);
   }
 
   .ring-bg-bottom {
-    @include theme($url: '../../assets/ringBgBottom.svg', $bgPosition: right bottom);
+    @include ringBg($url: '../../assets/ringBgBottom.svg', $bgPosition: right bottom);
   }
 
   .bubble-bg-top {
-    @include theme($url: '../../assets/bubble.svg', $bgPosition: 98% 2%);
+    position: fixed;
+    top: 1em;
+    right: 0.5em;
+    width: 8em;
+    height: 8em;
+    background: url('../../assets/bubble.png') no-repeat 50% / contain;
   }
 
   .bubble-bg-bottom {
-    @include theme($url: '../../assets/bubble.svg', $bgPosition: 2% 98%);
+    position: fixed;
+    left: 0.5em;
+    bottom: 1em;
+    width: 10em;
+    height: 10em;
+    background: url('../../assets/bubble.png') no-repeat 50% / contain;
   }
 
   .home-text {
