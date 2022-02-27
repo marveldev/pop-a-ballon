@@ -130,16 +130,11 @@
   @media only screen and (max-width: 600px) {
     .header {
       text-align: center;
+      padding: 1.5em 1em 1em;
     }
 
-    .six,
-    .five,
-    .eight {
+    .six {
       display: none;
-    }
-
-    .bubbles .three {
-      bottom: 15%;
     }
   }
 }

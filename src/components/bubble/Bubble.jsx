@@ -23,10 +23,10 @@ const Bubble = () => {
 
   return (
     <div className={"bubble-wrap w-100 h-100"}>
-      <div className={"header text-white fw-bold d-flex justify-content-between"}>
-        <p>Level <span>One</span></p>
+      <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
+        <p>Level: <span className={"fw-normal"}>One</span></p>
         <p>Count Down: <span className={"fw-normal"}>00:00:00</span></p>
-        <p>Balls Popped: <span className={"fw-normal"}>0</span></p>
+        <p>Bubbles: <span className={"fw-normal"}>0/20</span></p>
       </div>
 
       <div className="bubbles">

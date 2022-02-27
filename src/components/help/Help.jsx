@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Help = ({ setIsGuide }) => {
+const Help = ({ setGuideModalIsOpen }) => {
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
       <motion.div
@@ -15,7 +15,7 @@ const Help = ({ setIsGuide }) => {
             <button
               className={"btn p-0"}
               aria-label="close"
-              onClick={() => setIsGuide(false)}
+              onClick={() => setGuideModalIsOpen(false)}
             >
               <i className="material-icons align-middle fs-2">close</i>
             </button>

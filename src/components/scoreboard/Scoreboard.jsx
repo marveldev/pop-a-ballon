@@ -1,6 +1,10 @@
+import { useState } from '@hookstate/core'
 import { motion } from 'framer-motion'
+import store from '../../store'
 
-const Scoreboard = ({ setIsSettings }) => {
+const Scoreboard = () => {
+  const { scoreModalIsOpen, highestScore, currentScore } = useState(store)
+
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
       <motion.div
@@ -15,7 +19,7 @@ const Scoreboard = ({ setIsSettings }) => {
             <button
               className={"btn p-0"}
               aria-label="close"
-              onClick={() => setIsSettings(false)}
+              onClick={() => scoreModalIsOpen.set(false)}
             >
               <i className="material-icons align-middle fs-2">close</i>
             </button>
