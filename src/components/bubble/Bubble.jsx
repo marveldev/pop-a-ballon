@@ -6,6 +6,7 @@ const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
   const [counter, setCounter] = useState(40)
+  const [bubblesPopped, setBubblesPopped] = useState(0)
 
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000)
@@ -21,6 +22,7 @@ const Bubble = () => {
     bubble.classList.add('pop')
 
     audioElement.play()
+    setBubblesPopped(bubblesPopped + 1)
 
     setTimeout(() => {
       bubble.classList.remove('pop')
@@ -35,7 +37,7 @@ const Bubble = () => {
         <p>Count Down:
           <span className={"fw-normal"}> 00:00:{counter < 10 ? `0${counter}` : counter}</span>
         </p>
-        <p>Bubbles: <span className={"fw-normal"}>0/20</span></p>
+        <p>Bubbles: <span className={"fw-normal"}>{bubblesPopped}/20</span></p>
       </div>
 
       <div className="bubbles">
