@@ -4,8 +4,8 @@ const store = createState({
   scoreModalIsOpen: false,
   gameIsOver: false,
   userIsPlaying: false,
-  highestScore: 0,
-  currentScore: 0
+  scoreBoard: { highestScore: 0, currentScore: 0 },
+  bubblesCount: { bubblesPopped: 0, totalToBePopped: 20}
 })
 
 export default store

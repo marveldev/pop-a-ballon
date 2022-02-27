@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useState as reactHookState } from '@hookstate/core'
-import { Bubble, Help, Home, Scoreboard, Win } from './components'
+import { Bubble, Help, Home, Scoreboard, GameOver } from './components'
 import store from './store'
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
       {scoreModalIsOpen.get() && <Scoreboard />}
       {userIsPlaying.get() && <Bubble />}
       {guideModalIsOpen && <Help setGuideModalIsOpen={setGuideModalIsOpen} />}
-      {gameIsOver.get() && <Win/>}
+      {gameIsOver.get() && <GameOver />}
     </div>
   )
 }

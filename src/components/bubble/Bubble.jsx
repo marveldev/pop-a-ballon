@@ -8,8 +8,7 @@ const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
   const [counter, setCounter] = useState(3)
-  const [bubblesPopped, setBubblesPopped] = useState(0)
-  const { gameIsOver, userIsPlaying } = reactHookState(store)
+  const { gameIsOver, userIsPlaying, bubblesCount } = reactHookState(store)
 
   useEffect(() => {
     if (counter > 0) {
@@ -29,7 +28,7 @@ const Bubble = () => {
     bubble.classList.add('pop')
 
     audioElement.play()
-    setBubblesPopped(bubblesPopped + 1)
+    bubblesCount.merge({bubblesPopped: bubblesCount.get().bubblesPopped + 1})
 
     setTimeout(() => {
       bubble.classList.remove('pop')
@@ -41,10 +40,14 @@ const Bubble = () => {
     <div className={"bubble-wrap w-100 h-100"}>
       <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
         <p>Level: <span className={"fw-normal"}>One</span></p>
-        <p>Count Down:
-          <span className={"fw-normal"}> 00:00:{counter < 10 ? `0${counter}` : counter}</span>
+        <p>Count Down: &nbsp;
+          <span className={"fw-normal"}>00:00:{counter < 10 ? `0${counter}` : counter}</span>
         </p>
-        <p>Bubbles: <span className={"fw-normal"}>{bubblesPopped}/20</span></p>
+        <p>Bubbles: &nbsp;
+          <span className={"fw-normal"}>
+            {bubblesCount.get().bubblesPopped}/{bubblesCount.get().totalToBePopped}
+          </span>
+        </p>
       </div>
 
       <div className="bubbles">
