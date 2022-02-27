@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import store from '../../store'
 import './home.scss'
 
-const Home = ({ setGuideModalIsOpen, setUserIsPlaying }) => {
-  const { scoreModalIsOpen } = useState(store)
+const Home = ({ setGuideModalIsOpen }) => {
+  const { scoreModalIsOpen, userIsPlaying } = useState(store)
 
   return (
     <motion.div
@@ -56,7 +56,7 @@ const Home = ({ setGuideModalIsOpen, setUserIsPlaying }) => {
 
           <button
             className={"btn rounded-circle text-white p-0"}
-            onClick={() => setUserIsPlaying(true)}
+            onClick={() => userIsPlaying.set(true)}
           >
             <i className="material-icons align-middle fs-1">play_arrow</i>
           </button>

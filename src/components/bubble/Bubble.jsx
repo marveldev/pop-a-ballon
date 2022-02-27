@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react'
+import { useState as reactHookState } from '@hookstate/core'
+import store from '../../store'
 import pop from './pop.mp3'
 import './bubble.scss'
 
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
-  const [counter, setCounter] = useState(40)
+  const [counter, setCounter] = useState(3)
   const [bubblesPopped, setBubblesPopped] = useState(0)
+  const { gameIsOver, userIsPlaying } = reactHookState(store)
 
   useEffect(() => {
-    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000)
-    counter === 0 && alert('game over')
+    if (counter > 0) {
+      setTimeout(() => setCounter(counter - 1), 1000)
+    } else {
+      gameIsOver.set(true)
+      userIsPlaying.set(false)
+    }
   }, [counter])
 
   const popBubble = value => {
