@@ -4,7 +4,13 @@ import store from '../../store'
 import './gameOver.scss'
 
 const GameOver = () => {
-  const { bubblesCount } = reactHookState(store)
+  const { bubblesCount, userIsPlaying, gameIsOver } = reactHookState(store)
+  
+  const switchToHome = () => {
+    userIsPlaying.set(false)
+    gameIsOver.set(false)
+    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
+  }
 
   return (
     <motion.div className={"game-over m-auto"}>
@@ -52,7 +58,10 @@ const GameOver = () => {
                 <i className="material-icons">fast_forward</i>
               </button>
 
-              <button className="btn rounded-circle text-white">
+              <button
+                className="btn rounded-circle text-white"
+                onClick={switchToHome}
+              >
                 <i className="material-icons">home</i>
               </button>
             </div>
@@ -74,7 +83,10 @@ const GameOver = () => {
                 <i className="material-icons">replay</i>
               </button>
 
-              <button className="btn rounded-circle text-white">
+              <button
+                className="btn rounded-circle text-white"
+                onClick={switchToHome}
+              >
                 <i className="material-icons">home</i>
               </button>
             </div>
