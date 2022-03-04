@@ -1,4 +1,5 @@
 import { useState as reactHookState } from '@hookstate/core'
+import { motion } from 'framer-motion'
 import store from '../../store'
 import './gameOver.scss'
 
@@ -6,7 +7,35 @@ const GameOver = () => {
   const { bubblesCount } = reactHookState(store)
 
   return (
-    <div className={"game-over m-auto"}>
+    <motion.div className={"game-over m-auto"}>
+      <motion.div
+        className={"ring-bg-top"}
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"ring-bg-bottom"}
+        initial={{ x: 200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"bubble-bg-top"}
+        initial={{ x: 200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
+      <motion.div
+        className={"bubble-bg-bottom"}
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1 }}
+      />
+
       {bubblesCount.get().bubblesPopped >= bubblesCount.get().totalToBePopped ? (
         <div>
           congratulations you passed.
@@ -36,7 +65,7 @@ const GameOver = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   )
 }
 
