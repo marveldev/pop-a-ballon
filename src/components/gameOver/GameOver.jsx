@@ -1,15 +1,27 @@
 import { useState as reactHookState } from '@hookstate/core'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import store from '../../store'
 import './gameOver.scss'
 
 const GameOver = () => {
-  const { bubblesCount, userIsPlaying, gameIsOver } = reactHookState(store)
+  const { bubblesCount, userIsPlaying, gameIsOver, scoreBoard } = reactHookState(store)
+
+  useEffect(() => {
+    const currentScore = scoreBoard.get().currentScore + bubblesCount.get().bubblesPopped
+    scoreBoard.merge({currentScore})
+  }, [])
   
   const switchToHome = () => {
-    userIsPlaying.set(false)
     gameIsOver.set(false)
     bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
+  }
+  
+  const switchToBubble = () => {
+    gameIsOver.set(false)
+    userIsPlaying.set(true)
+    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
+    scoreBoard.merge({ currentScore: 0})
   }
 
   return (
@@ -50,7 +62,7 @@ const GameOver = () => {
           </div>
 
           <div className="card-body">
-            <p>Your Score: 366</p>
+            <p>Your Score: {scoreBoard.get().currentScore}</p>
             <p className="card-title">Highest Score: 366</p>
 
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
@@ -75,11 +87,14 @@ const GameOver = () => {
           </div>
 
           <div className="card-body">
-            <p>Your Score: 366</p>
+            <p>Your Score: {scoreBoard.get().currentScore}</p>
             <p className="card-title">Highest Score: 366</p>
 
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
-              <button className="btn rounded-circle text-white">
+              <button
+                className="btn rounded-circle text-white"
+                onClick={switchToBubble}
+              >
                 <i className="material-icons">replay</i>
               </button>
 
