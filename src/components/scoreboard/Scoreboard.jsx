@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import store from '../../store'
 
 const Scoreboard = () => {
-  const { scoreModalIsOpen, highestScore, currentScore, scoreBoard } = useState(store)
+  const { scoreModalIsOpen, scoreBoard } = useState(store)
 
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
@@ -30,7 +30,7 @@ const Scoreboard = () => {
               <span className={"fw-bold"}>Latest score:</span> {scoreBoard.get().currentScore}
             </div>
             <div className={"my-3 fs-5"}>
-              <span className={"fw-bold"}>Highest score:</span> 0
+              <span className={"fw-bold"}>Highest score:</span> {scoreBoard.get().highScore}
             </div>
             <button className={"btn btn-success w-50"}>Reset</button>
           </div>

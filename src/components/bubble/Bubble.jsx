@@ -42,7 +42,7 @@ const Bubble = () => {
       <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
         <p>Level: &nbsp;
           <span className={"fw-normal"}>
-            {toWords(level.get()).toUpperCase()}
+            {toWords(level.get())}
           </span>
         </p>
 

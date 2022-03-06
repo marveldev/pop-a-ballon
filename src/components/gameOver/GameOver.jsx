@@ -9,7 +9,13 @@ const GameOver = () => {
 
   useEffect(() => {
     const currentScore = scoreBoard.get().currentScore + bubblesCount.get().bubblesPopped
-    scoreBoard.merge({currentScore})
+    const highScore = scoreBoard.get().highScore
+
+    if (currentScore >= highScore) {
+      scoreBoard.merge({ highScore: currentScore, currentScore })
+    } else {
+      scoreBoard.merge({ currentScore })
+    }
   }, [])
   
   const restartGame = replay => {
@@ -70,7 +76,7 @@ const GameOver = () => {
 
           <div className="card-body">
             <p>Your Score: {scoreBoard.get().currentScore}</p>
-            <p className="card-title">Highest Score: 366</p>
+            <p className="card-title">Highest Score: { scoreBoard.get().highScore }</p>
 
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
@@ -98,7 +104,7 @@ const GameOver = () => {
 
           <div className="card-body">
             <p>Your Score: {scoreBoard.get().currentScore}</p>
-            <p className="card-title">Highest Score: 366</p>
+            <p className="card-title">Highest Score: { scoreBoard.get().highScore }</p>
 
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button

@@ -5,7 +5,7 @@ const store = createState({
   gameIsOver: false,
   userIsPlaying: false,
   level: 1,
-  scoreBoard: { highestScore: 0, currentScore: 0 },
+  scoreBoard: { highScore: 0, currentScore: 0 },
   bubblesCount: { bubblesPopped: 0, totalToBePopped: 15}
 })
 
