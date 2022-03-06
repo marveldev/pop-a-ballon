@@ -18,7 +18,7 @@ const Bubble = () => {
       gameIsOver.set(true)
       userIsPlaying.set(false)
     }
-  }, [counter, gameIsOver.get(), userIsPlaying.get()])
+  }, [counter, gameIsOver, userIsPlaying])
 
   const popBubble = value => {
     const bubble = document.querySelector(`.${value}`)
