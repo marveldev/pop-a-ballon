@@ -13,6 +13,7 @@ const GameOver = () => {
 
     if (currentScore >= highScore) {
       scoreBoard.merge({ highScore: currentScore, currentScore })
+      localStorage.setItem('highScore', currentScore.toString())
     } else {
       scoreBoard.merge({ currentScore })
     }
@@ -81,16 +82,16 @@ const GameOver = () => {
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
                 className="btn rounded-circle text-white"
-                onClick={() => beginNextLevel(true)}
+                onClick={() => beginNextLevel(false)}
               >
-                <i className="material-icons">fast_forward</i>
+                <i className="material-icons">home</i>
               </button>
 
               <button
                 className="btn rounded-circle text-white"
-                onClick={() => beginNextLevel(false)}
+                onClick={() => beginNextLevel(true)}
               >
-                <i className="material-icons">home</i>
+                <i className="material-icons">fast_forward</i>
               </button>
             </div>
           </div>
@@ -109,16 +110,16 @@ const GameOver = () => {
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
                 className="btn rounded-circle text-white"
-                onClick={() => restartGame(true)}
+                onClick={() => restartGame(false)}
               >
-                <i className="material-icons">replay</i>
+                <i className="material-icons">home</i>
               </button>
 
               <button
                 className="btn rounded-circle text-white"
-                onClick={() => restartGame(false)}
+                onClick={() => restartGame(true)}
               >
-                <i className="material-icons">home</i>
+                <i className="material-icons">replay</i>
               </button>
             </div>
           </div>

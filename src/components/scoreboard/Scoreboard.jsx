@@ -27,12 +27,20 @@ const Scoreboard = () => {
 
           <div className={"modal-body text-center"}>
             <div className={"fs-5"}>
-              <span className={"fw-bold"}>Latest score:</span> {scoreBoard.get().currentScore}
+              <span className={"fw-bold"}>Score:</span> {scoreBoard.get().currentScore}
             </div>
             <div className={"my-3 fs-5"}>
-              <span className={"fw-bold"}>Highest score:</span> {scoreBoard.get().highScore}
+              <span className={"fw-bold"}>Best:</span> {scoreBoard.get().highScore}
             </div>
-            <button className={"btn btn-success w-50"}>Reset</button>
+            <button
+              className={"btn btn-success w-50"}
+              onClick={() => {
+                scoreBoard.merge({ highScore: 0 })
+                localStorage.removeItem('highScore')
+              }}
+            >
+              Reset
+            </button>
           </div>
         </div>
       </motion.div>
