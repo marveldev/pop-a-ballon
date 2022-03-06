@@ -12,24 +12,23 @@ const GameOver = () => {
     scoreBoard.merge({currentScore})
   }, [])
   
-  const switchToHome = () => {
+  const restartGame = replay => {
     gameIsOver.set(false)
-    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
-  }
-  
-  const restartGame = () => {
     level.set(1)
-    gameIsOver.set(false)
-    userIsPlaying.set(true)
-    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
+    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 15})
     scoreBoard.merge({ currentScore: 0})
+
+    if (replay) userIsPlaying.set(true)
   }
   
-  const beginNextLevel = () => {
-    level.set(level.get() + 1)
+  const beginNextLevel = replay => {
     gameIsOver.set(false)
-    userIsPlaying.set(true)
-    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
+    level.set(level.get() + 1)
+    bubblesCount.merge({
+      bubblesPopped: 0, totalToBePopped: bubblesCount.get().totalToBePopped + 5
+    })
+
+    if (replay) userIsPlaying.set(true)
   }
 
   return (
@@ -76,14 +75,14 @@ const GameOver = () => {
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
                 className="btn rounded-circle text-white"
-                onClick={beginNextLevel}
+                onClick={() => beginNextLevel(true)}
               >
                 <i className="material-icons">fast_forward</i>
               </button>
 
               <button
                 className="btn rounded-circle text-white"
-                onClick={switchToHome}
+                onClick={() => beginNextLevel(false)}
               >
                 <i className="material-icons">home</i>
               </button>
@@ -104,14 +103,14 @@ const GameOver = () => {
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
                 className="btn rounded-circle text-white"
-                onClick={restartGame}
+                onClick={() => restartGame(true)}
               >
                 <i className="material-icons">replay</i>
               </button>
 
               <button
                 className="btn rounded-circle text-white"
-                onClick={switchToHome}
+                onClick={() => restartGame(false)}
               >
                 <i className="material-icons">home</i>
               </button>
