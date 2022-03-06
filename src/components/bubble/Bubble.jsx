@@ -1,34 +1,72 @@
+import { useEffect, useState } from 'react'
+import { useState as reactHookState } from '@hookstate/core'
+import { toWords } from 'number-to-words'
+import store from '../../store'
+import pop from './pop.mp3'
 import './bubble.scss'
 
 const Bubble = () => {
-// const audioElement = new Audio(pop)
-const popBubble = (value) => {
-  console.log('i have been clicked' + ' ' + value)
-  // audioElement.play()
-  const bubble = document.querySelector(`.${value}`)
-  // bubble.classList.remove("float")
-  bubble.classList.add("popped")
-}
+  const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+  const audioElement = new Audio(pop)
+  const [counter, setCounter] = useState(30)
+  const { gameIsOver, userIsPlaying, bubblesCount, level } = reactHookState(store)
+
+  useEffect(() => {
+    if (counter > 0) {
+      setTimeout(() => setCounter(counter - 1), 1000)
+    } else {
+      gameIsOver.set(true)
+      userIsPlaying.set(false)
+    }
+  }, [counter])
+
+  const popBubble = value => {
+    const bubble = document.querySelector(`.${value}`)
+    const bubblePosition = bubble.getBoundingClientRect()
+
+    bubble.style.left = bubblePosition.left+'px'
+    bubble.style.top = bubblePosition.top+'px'
+    bubble.classList.add('pop')
+
+    audioElement.play()
+    bubblesCount.merge({bubblesPopped: bubblesCount.get().bubblesPopped + 1})
+
+    setTimeout(() => {
+      bubble.classList.remove('pop')
+      bubble.removeAttribute('style')
+    }, 100)
+  }
 
   return (
-    <div className={"bubble-wrap"}>
-      <div className={"header fw-bold d-flex justify-content-between"}>
-        <p>Level <span>One</span></p>
-        <p>Count Down: <span className={"fw-normal"}>00:00:00</span></p>
-        <p>Balls Popped: <span className={"fw-normal"}>0</span></p>
+    <div className={"bubble-wrap w-100 h-100"}>
+      <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
+        <p>Level: &nbsp;
+          <span className={"fw-normal"}>
+            {toWords(level.get())}
+          </span>
+        </p>
+
+        <p>Count Down: &nbsp;
+          <span className={"fw-normal"}>
+            00:00:{counter < 10 ? `0${counter}` : counter}
+          </span>
+        </p>
+
+        <p>Bubbles: &nbsp;
+          <span className={"fw-normal"}>
+            {bubblesCount.get().bubblesPopped}/{bubblesCount.get().totalToBePopped}
+          </span>
+        </p>
       </div>
 
-      <div>
-        <div className="bubble b-one" onClick={() => popBubble('b-one')}/>
-        <div className="bubble b-two" />
-        <div className="bubble b-three" />
-        <div className="bubble b-four" />
-        <div className="bubble b-five" />
-        <div className="bubble b-six" />
-        <div className="bubble b-seven" />
-        <div className="bubble b-eight" />
-        <div className="bubble b-nine" />
-        <div className="bubble b-ten" />
+      <div className="bubbles">
+        {bubArray.map(value => (
+          <span
+            key={value}
+            className={`bubble ${value}`}
+            onClick={() => popBubble(value)}
+          />
+        ))}
       </div>
     </div>
   )

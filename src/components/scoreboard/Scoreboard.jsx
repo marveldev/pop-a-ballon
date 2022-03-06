@@ -1,6 +1,10 @@
+import { useState } from '@hookstate/core'
 import { motion } from 'framer-motion'
+import store from '../../store'
 
-const Dashboard = ({ setIsSettings }) => {
+const Scoreboard = () => {
+  const { scoreModalIsOpen, scoreBoard } = useState(store)
+
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
       <motion.div
@@ -11,11 +15,11 @@ const Dashboard = ({ setIsSettings }) => {
       >
         <div className="modal-content pb-2">
           <div className="modal-header">
-            <h3>Dashboard</h3>
+            <h3>Scoreboard</h3>
             <button
               className={"btn p-0"}
               aria-label="close"
-              onClick={() => setIsSettings(false)}
+              onClick={() => scoreModalIsOpen.set(false)}
             >
               <i className="material-icons align-middle fs-2">close</i>
             </button>
@@ -23,12 +27,20 @@ const Dashboard = ({ setIsSettings }) => {
 
           <div className={"modal-body text-center"}>
             <div className={"fs-5"}>
-              <span className={"fw-bold"}>Your score:</span> 0
+              <span className={"fw-bold"}>Score:</span> {scoreBoard.get().currentScore}
             </div>
             <div className={"my-3 fs-5"}>
-              <span className={"fw-bold"}>Highest score:</span> 0
+              <span className={"fw-bold"}>Best:</span> {scoreBoard.get().highScore}
             </div>
-            <button className={"btn btn-primary w-50"}>Reset</button>
+            <button
+              className={"btn btn-success w-50"}
+              onClick={() => {
+                scoreBoard.merge({ highScore: 0 })
+                localStorage.removeItem('highScore')
+              }}
+            >
+              Reset
+            </button>
           </div>
         </div>
       </motion.div>
@@ -36,4 +48,4 @@ const Dashboard = ({ setIsSettings }) => {
   )
 }
 
-export default Dashboard
+export default Scoreboard

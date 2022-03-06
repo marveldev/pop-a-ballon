@@ -1,4 +1,4 @@
-@mixin theme($url, $bgPosition) {
+@mixin ringBg($url, $bgPosition) {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -6,53 +6,49 @@
   background: url($url) no-repeat $bgPosition;
 }
 
+.app {
+  background: #080820FF;
+  z-index: -1;
+}
+
 button:active {
   transform: translateY(0.2em);
 }
 
-.home {
-  .ring-bg-top {
-    @include theme($url: './assets/ringBgTop.svg', $bgPosition: left top);
-  }
+.ring-bg-top {
+  @include ringBg($url: './assets/ringBgTop.svg', $bgPosition: left top);
+}
 
-  .ring-bg-bottom {
-    @include theme($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
-  }
+.ring-bg-bottom {
+  @include ringBg($url: './assets/ringBgBottom.svg', $bgPosition: right bottom);
+}
 
-  .ball-bg-top {
-    @include theme($url: './assets/ballBgBottom.svg', $bgPosition: 98% 2%);
-  }
+.bubble-bg-top {
+  position: fixed;
+  top: 1em;
+  right: 0.5em;
+  width: 8em;
+  height: 8em;
+  background: url('./assets/bubble.png') no-repeat 50% / contain;
+}
 
-  .ball-bg-bottom {
-    @include theme($url: './assets/ballBgTop.svg', $bgPosition: 2% 98%);
-  }
-
-  .home-text {
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-
-    .btn {
-      width: 3.5em;
-      height: 3.5em;
-      background: #009c00;
-      font-family: arial, serif;
-    }
-  }
-
-  .name {
-    font-family: "Raleway Light", monospace;
-    font-size: 8em;
-  }
+.bubble-bg-bottom {
+  position: fixed;
+  left: 0.5em;
+  bottom: 1em;
+  width: 10em;
+  height: 10em;
+  background: url('./assets/bubble.png') no-repeat 50% / contain;
 }
 
 .dashboard,
 .help {
   width: 50%;
+  color: #000;
 }
 
 .overlay {
-  background-color: #000000A3;
+  background: #18181879;
 }
 
 @media only screen and (max-width: 650px) {

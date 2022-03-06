@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Help = ({ setIsGuide }) => {
+const Help = ({ setGuideModalIsOpen }) => {
   return (
     <div className={"overlay position-fixed w-100 h-100"}>
       <motion.div
@@ -15,14 +15,17 @@ const Help = ({ setIsGuide }) => {
             <button
               className={"btn p-0"}
               aria-label="close"
-              onClick={() => setIsGuide(false)}
+              onClick={() => setGuideModalIsOpen(false)}
             >
               <i className="material-icons align-middle fs-2">close</i>
             </button>
           </div>
 
-          <div className={"modal-body text-center"}>
-            how to play
+          <div className={"modal-body"}>
+            To successfully complete a level,
+            you are to pop the required number of bubbles by tapping on the bubbles
+            before the countdown ends. Extra points are awarded for any additional bubble you pop.
+            Have fun!
           </div>
         </div>
       </motion.div>

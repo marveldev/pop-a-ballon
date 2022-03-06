@@ -1,0 +1,31 @@
+.game-over {
+  font-size: 1.2em;
+
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .card-header {
+    font-family: "Raleway", monospace;
+    font-size: 4.5em;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .btn {
+    width: 3.5em;
+    height: 3.5em;
+    background: #009c00;
+
+    i {
+      font-size: 2em;
+      vertical-align: middle;
+    }
+  }
+}

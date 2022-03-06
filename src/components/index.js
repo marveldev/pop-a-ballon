@@ -1,4 +1,5 @@
 export { default as Home } from './home/Home'
-export { default as Dashboard } from './dashboard/Dashboard'
+export { default as Scoreboard } from './scoreboard/Scoreboard'
 export { default as Help } from './help/Help'
 export { default as Bubble } from './bubble/Bubble'
+export { default as GameOver } from './gameOver/GameOver'

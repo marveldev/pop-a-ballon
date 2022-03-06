@@ -1,19 +1,21 @@
 import { useState } from 'react'
-import { Bubble, Help, Home, Dashboard } from './components'
+import { useState as reactHookState } from '@hookstate/core'
+import { Bubble, Help, Home, Scoreboard, GameOver } from './components'
+import store from './store'
 
 const App = () => {
-  const [isSettings, setIsSettings] = useState(false)
-  const [isGuide, setIsGuide] = useState(false)
-  const [userIsPlaying, setUserIsPlaying] = useState(false)
+  const [guideModalIsOpen, setGuideModalIsOpen] = useState(false)
+  const { scoreModalIsOpen, gameIsOver, userIsPlaying } = reactHookState(store)
 
   return (
-    <div className={"position-absolute w-100 h-100"}>
-      {!userIsPlaying && (
-        <Home setIsSettings={setIsSettings} setIsGuide={setIsGuide} setUserIsPlaying={setUserIsPlaying} />
+    <div className={"app position-absolute w-100 h-100 text-white"}>
+      {!userIsPlaying.get() && !gameIsOver.get() && (
+        <Home setGuideModalIsOpen={setGuideModalIsOpen} />
       )}
-      {isSettings && <Dashboard setIsSettings={setIsSettings} />}
-      {isGuide && <Help setIsGuide={setIsGuide} />}
-      {userIsPlaying && <Bubble />}
+      {scoreModalIsOpen.get() && <Scoreboard />}
+      {userIsPlaying.get() && <Bubble />}
+      {guideModalIsOpen && <Help setGuideModalIsOpen={setGuideModalIsOpen} />}
+      {gameIsOver.get() && <GameOver />}
     </div>
   )
 }
