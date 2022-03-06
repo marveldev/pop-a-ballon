@@ -5,7 +5,7 @@ import store from '../../store'
 import './gameOver.scss'
 
 const GameOver = () => {
-  const { bubblesCount, userIsPlaying, gameIsOver, scoreBoard } = reactHookState(store)
+  const { bubblesCount, userIsPlaying, gameIsOver, scoreBoard, level } = reactHookState(store)
 
   useEffect(() => {
     const currentScore = scoreBoard.get().currentScore + bubblesCount.get().bubblesPopped
@@ -17,11 +17,19 @@ const GameOver = () => {
     bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
   }
   
-  const switchToBubble = () => {
+  const restartGame = () => {
+    level.set(1)
     gameIsOver.set(false)
     userIsPlaying.set(true)
     bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
     scoreBoard.merge({ currentScore: 0})
+  }
+  
+  const beginNextLevel = () => {
+    level.set(level.get() + 1)
+    gameIsOver.set(false)
+    userIsPlaying.set(true)
+    bubblesCount.set({ bubblesPopped: 0, totalToBePopped: 20})
   }
 
   return (
@@ -66,7 +74,10 @@ const GameOver = () => {
             <p className="card-title">Highest Score: 366</p>
 
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
-              <button className="btn rounded-circle text-white">
+              <button
+                className="btn rounded-circle text-white"
+                onClick={beginNextLevel}
+              >
                 <i className="material-icons">fast_forward</i>
               </button>
 
@@ -93,7 +104,7 @@ const GameOver = () => {
             <div className={"d-flex justify-content-center gap-4 mt-4"}>
               <button
                 className="btn rounded-circle text-white"
-                onClick={switchToBubble}
+                onClick={restartGame}
               >
                 <i className="material-icons">replay</i>
               </button>

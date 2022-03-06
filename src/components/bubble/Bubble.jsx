@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useState as reactHookState } from '@hookstate/core'
+import { toWords } from 'number-to-words'
 import store from '../../store'
 import pop from './pop.mp3'
 import './bubble.scss'
@@ -7,8 +8,8 @@ import './bubble.scss'
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
-  const [counter, setCounter] = useState(3)
-  const { gameIsOver, userIsPlaying, bubblesCount } = reactHookState(store)
+  const [counter, setCounter] = useState(20)
+  const { gameIsOver, userIsPlaying, bubblesCount, level } = reactHookState(store)
 
   useEffect(() => {
     if (counter > 0) {
@@ -39,10 +40,18 @@ const Bubble = () => {
   return (
     <div className={"bubble-wrap w-100 h-100"}>
       <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
-        <p>Level: <span className={"fw-normal"}>One</span></p>
-        <p>Count Down: &nbsp;
-          <span className={"fw-normal"}>00:00:{counter < 10 ? `0${counter}` : counter}</span>
+        <p>Level: &nbsp;
+          <span className={"fw-normal"}>
+            {toWords(level.get()).toUpperCase()}
+          </span>
         </p>
+
+        <p>Count Down: &nbsp;
+          <span className={"fw-normal"}>
+            00:00:{counter < 10 ? `0${counter}` : counter}
+          </span>
+        </p>
+
         <p>Bubbles: &nbsp;
           <span className={"fw-normal"}>
             {bubblesCount.get().bubblesPopped}/{bubblesCount.get().totalToBePopped}
