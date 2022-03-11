@@ -8,7 +8,7 @@ import './bubble.scss'
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
-  const [counter, setCounter] = useState(10)
+  const [counter, setCounter] = useState(30)
   const { gameIsOver, userIsPlaying, bubblesCount, level } = reactHookState(store)
 
   useEffect(() => {
