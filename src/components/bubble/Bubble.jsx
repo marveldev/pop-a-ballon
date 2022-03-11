@@ -10,9 +10,9 @@ const Bubble = () => {
   const audioElement = new Audio(pop)
   const [counter, setCounter] = useState(10)
   const { gameIsOver, userIsPlaying, bubblesCount, level } = reactHookState(store)
-  let timer
 
   useEffect(() => {
+    let timer
     if (counter >= 0) {
       timer = setTimeout(() => setCounter(counter - 1), 1000)
     } else {
