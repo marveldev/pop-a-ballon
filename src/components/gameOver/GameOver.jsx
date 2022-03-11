@@ -20,7 +20,7 @@ const GameOver = () => {
       scoreBoard.merge({currentScore})
       setScoreIsLoaded(false)
     }
-  })
+  }, [scoreBoard, bubblesCount, scoreIsLoaded])
   
   const restartGame = replay => {
     gameIsOver.set(false)
