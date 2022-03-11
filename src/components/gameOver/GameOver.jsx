@@ -7,20 +7,15 @@ import './gameOver.scss'
 const GameOver = () => {
   const { bubblesCount, userIsPlaying, gameIsOver, scoreBoard, level } = reactHookState(store)
 
-  const updateScore = () => {
+  useEffect(() => {
     const currentScore = scoreBoard.get().currentScore + bubblesCount.get().bubblesPopped
     const highScore = scoreBoard.get().highScore
 
     if (currentScore >= highScore) {
-      scoreBoard.merge(() => ({ highScore: currentScore, currentScore }))
+      scoreBoard.merge({highScore: currentScore})
       localStorage.setItem('highScore', currentScore.toString())
-    } else {
-      scoreBoard.merge({ currentScore })
     }
-  }
-
-  useEffect(() => {
-    updateScore()
+    scoreBoard.merge({currentScore})
   }, [])
   
   const restartGame = replay => {

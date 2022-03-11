@@ -8,15 +8,20 @@ import './bubble.scss'
 const Bubble = () => {
   const bubArray = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
   const audioElement = new Audio(pop)
-  const [counter, setCounter] = useState(30)
+  const [counter, setCounter] = useState(10)
   const { gameIsOver, userIsPlaying, bubblesCount, level } = reactHookState(store)
+  let timer
 
   useEffect(() => {
-    if (counter > 0) {
-      setTimeout(() => setCounter(counter - 1), 1000)
+    if (counter >= 0) {
+      timer = setTimeout(() => setCounter(counter - 1), 1000)
     } else {
       gameIsOver.set(true)
       userIsPlaying.set(false)
+    }
+
+    return () => {
+      counter < 0 && clearTimeout(timer)
     }
   }, [counter, gameIsOver, userIsPlaying])
 
