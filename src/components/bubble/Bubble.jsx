@@ -39,9 +39,9 @@ const Bubble = () => {
 
   return (
     <div className={"bubble-wrap w-100 h-100"}>
-      <div className={"header text-white fw-bold d-flex justify-content-lg-evenly"}>
+      <div className={"header text-white fw-bold d-flex justify-content-evenly"}>
         <p>Level: &nbsp;
-          <span className={"fw-normal"}>
+          <span className={"fw-normal text-capitalize"}>
             {toWords(level.get())}
           </span>
         </p>

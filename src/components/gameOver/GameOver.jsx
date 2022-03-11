@@ -1,13 +1,13 @@
 import { useState as reactHookState } from '@hookstate/core'
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import store from '../../store'
 import './gameOver.scss'
 
 const GameOver = () => {
   const { bubblesCount, userIsPlaying, gameIsOver, scoreBoard, level } = reactHookState(store)
 
-  useEffect(() => {
+  const updateScore = () => {
     const currentScore = scoreBoard.get().currentScore + bubblesCount.get().bubblesPopped
     const highScore = scoreBoard.get().highScore
 
@@ -17,7 +17,11 @@ const GameOver = () => {
     } else {
       scoreBoard.merge({ currentScore })
     }
-  }, [bubblesCount, scoreBoard])
+  }
+
+  useEffect(() => {
+    updateScore()
+  }, [])
   
   const restartGame = replay => {
     gameIsOver.set(false)
