@@ -12,7 +12,7 @@ const GameOver = () => {
     const highScore = scoreBoard.get().highScore
 
     if (currentScore >= highScore) {
-      scoreBoard.merge({ highScore: currentScore, currentScore })
+      scoreBoard.merge(() => ({ highScore: currentScore, currentScore }))
       localStorage.setItem('highScore', currentScore.toString())
     } else {
       scoreBoard.merge({ currentScore })
